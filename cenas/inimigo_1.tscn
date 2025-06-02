@@ -1,0 +1,96 @@
+[gd_scene load_steps=18 format=3 uid="uid://bxkrlwp28qvy6"]
+
+[ext_resource type="Script" uid="uid://bxeyw812q737f" path="res://scripts/inimigo_1.gd" id="1_miy63"]
+[ext_resource type="Texture2D" uid="uid://cgcvnddkp7t3b" path="res://sprites/Malware Frente1.png" id="2_7wqcv"]
+[ext_resource type="Texture2D" uid="uid://qiubtd5c65e6" path="res://sprites/Malware Frente2.png" id="3_riajc"]
+[ext_resource type="Texture2D" uid="uid://cflk8patvwovf" path="res://sprites/Malware Frente3.png" id="4_5dwig"]
+[ext_resource type="Texture2D" uid="uid://clcbiwjvjssvt" path="res://sprites/Malware Frente4.png" id="5_ietrw"]
+[ext_resource type="Texture2D" uid="uid://pneifvhgagyw" path="res://sprites/malware-morte2.png" id="6_p3k80"]
+[ext_resource type="Texture2D" uid="uid://cy3s2mrr81tqf" path="res://sprites/malware-morte3.png" id="7_gkh32"]
+[ext_resource type="Texture2D" uid="uid://dhq2r2dplevo6" path="res://sprites/malware-morte4.png" id="8_3cn0e"]
+[ext_resource type="Texture2D" uid="uid://e06hpbi1xv6h" path="res://sprites/malware-morte5.png" id="9_dlmpx"]
+[ext_resource type="Texture2D" uid="uid://cvx5kew3g25yv" path="res://sprites/malware-morte6.png" id="10_stxa3"]
+[ext_resource type="Texture2D" uid="uid://c57tktxpbqc3i" path="res://sprites/malware-morte7.png" id="11_2gdtw"]
+[ext_resource type="Texture2D" uid="uid://ct6snsdrvlw1o" path="res://sprites/malware-morte8.png" id="12_vit6j"]
+[ext_resource type="Texture2D" uid="uid://taoi8sq8nb61" path="res://sprites/malware-morte9.png" id="13_mgfmi"]
+[ext_resource type="Texture2D" uid="uid://dd5av2xuin8ul" path="res://sprites/malware-morte10.png" id="14_8n3qb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8k6de"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7wqcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_riajc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5dwig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ietrw")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_p3k80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gkh32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3cn0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dlmpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_stxa3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2gdtw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vit6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mgfmi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8n3qb")
+}],
+"loop": false,
+"name": &"morte",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8nd5y"]
+radius = 16.0
+height = 56.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7wqcv"]
+radius = 100.245
+
+[node name="inimigo1" type="CharacterBody2D"]
+script = ExtResource("1_miy63")
+
+[node name="malware" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_8k6de")
+animation = &"morte"
+autoplay = "andando"
+
+[node name="colisaoInimigo1" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_8nd5y")
+disabled = true
+
+[node name="areaInimigo1" type="Area2D" parent="."]
+
+[node name="colisaoAreaInimigo1" type="CollisionShape2D" parent="areaInimigo1"]
+shape = SubResource("CircleShape2D_7wqcv")
+
+[connection signal="animation_finished" from="malware" to="." method="_on_malware_animation_finished"]

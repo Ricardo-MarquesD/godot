@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://bpl4xfyp1dsbj"]
+
+[ext_resource type="Script" uid="uid://bnjylryiaox2j" path="res://scripts/player.gd" id="1_mp0j6"]
+[ext_resource type="Texture2D" uid="uid://dpekhtsmt24m8" path="res://sprites/Personagem1.png" id="2_8bq56"]
+[ext_resource type="Texture2D" uid="uid://d4bn8svieo7ym" path="res://sprites/Personagem2.png" id="3_tckef"]
+[ext_resource type="Texture2D" uid="uid://hbu4wmtgy5nw" path="res://sprites/Personagem3.png" id="4_ym2kn"]
+[ext_resource type="Texture2D" uid="uid://chkrf3l17gqw6" path="res://sprites/Personagem4.png" id="5_vtxll"]
+[ext_resource type="Texture2D" uid="uid://bnbgyn04ugjkc" path="res://sprites/Personagem5.png" id="6_s1iqd"]
+[ext_resource type="Texture2D" uid="uid://4d32cf03u3vg" path="res://sprites/Personagem6.png" id="7_6ptbh"]
+[ext_resource type="Texture2D" uid="uid://bhvq2h5r6g5k4" path="res://sprites/PersonagemIdle1.png" id="8_uk4ck"]
+[ext_resource type="Texture2D" uid="uid://wb6klp0aehic" path="res://sprites/PersonagemIdle2.png" id="9_gonb2"]
+[ext_resource type="Texture2D" uid="uid://b8h0aqrbsu8p1" path="res://sprites/PersonagemIdle3.png" id="10_j4uu1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpi5i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8bq56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tckef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ym2kn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vtxll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s1iqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6ptbh")
+}],
+"loop": true,
+"name": &"andando",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_uk4ck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gonb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j4uu1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oy6m0"]
+radius = 12.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l35t8"]
+radius = 16.0
+height = 54.0
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 10
+script = ExtResource("1_mp0j6")
+
+[node name="animacaoPlayer" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cpi5i")
+animation = &"idle"
+
+[node name="colisaoPlayer" type="CollisionShape2D" parent="."]
+position = Vector2(1, 17)
+shape = SubResource("CapsuleShape2D_oy6m0")
+
+[node name="areaPlayer" type="Area2D" parent="."]
+
+[node name="colisaoAreaPlayer" type="CollisionShape2D" parent="areaPlayer"]
+position = Vector2(1, 7)
+shape = SubResource("CapsuleShape2D_l35t8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://baig038kmaics"]
+
+[ext_resource type="Script" uid="uid://dornvtxvwy4gn" path="res://scripts/area_pc.gd" id="1_h7e8h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqd8t"]
+size = Vector2(29, 60)
+
+[node name="areaPc" type="Node2D"]
+script = ExtResource("1_h7e8h")
+
+[node name="PcArea" type="Area2D" parent="."]
+
+[node name="ColisaoPcArea" type="CollisionShape2D" parent="PcArea"]
+position = Vector2(-0.5, 20)
+shape = SubResource("RectangleShape2D_nqd8t")
+
+[connection signal="body_entered" from="PcArea" to="." method="_on_pc_area_body_entered"]
+[connection signal="body_exited" from="PcArea" to="." method="_on_pc_area_body_exited"]

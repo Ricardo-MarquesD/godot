@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://caf7nr27ohvay"]
+
+[ext_resource type="Texture2D" uid="uid://b5fw6rbj5d6fl" path="res://sprites/tarefas.png" id="1_2t74m"]
+
+[node name="avisos" type="CanvasLayer"]
+
+[node name="Tarefas" type="Sprite2D" parent="."]
+position = Vector2(105, 316)
+scale = Vector2(1.61719, 1.98438)
+texture = ExtResource("1_2t74m")

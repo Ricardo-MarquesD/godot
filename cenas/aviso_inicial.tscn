@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://be03f7egmtwsk"]
+
+[ext_resource type="Script" uid="uid://282pompjqbw5" path="res://scripts/aviso_inicial.gd" id="1_cp5ul"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmbd4"]
+size = Vector2(68.25, 65)
+
+[node name="AvisoInicial" type="Node2D"]
+script = ExtResource("1_cp5ul")
+
+[node name="areaAvisoInicial" type="Area2D" parent="."]
+
+[node name="colisaoAvisoInicial" type="CollisionShape2D" parent="areaAvisoInicial"]
+position = Vector2(2.875, 22.5)
+shape = SubResource("RectangleShape2D_wmbd4")
+
+[connection signal="body_entered" from="areaAvisoInicial" to="." method="_on_area_aviso_inicial_body_entered"]

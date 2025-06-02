@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc8r7i7dbhlqi"]
+
+[ext_resource type="Texture2D" uid="uid://b8ou0b42k13mq" path="res://sprites/pishing.png" id="1_3pah6"]
+
+[node name="pishing" type="Node2D"]
+
+[node name="Pishing" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+texture = ExtResource("1_3pah6")

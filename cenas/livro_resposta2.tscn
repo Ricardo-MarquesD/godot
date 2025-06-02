@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2rkslou0iu45"]
+
+[ext_resource type="Script" uid="uid://bhi4oal2jln2b" path="res://scripts/livro_resposta.gd" id="1_6lphm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pghba"]
+size = Vector2(26.75, 28.25)
+
+[node name="livroResposta" type="Node2D"]
+script = ExtResource("1_6lphm")
+
+[node name="areaLivroResposta" type="Area2D" parent="."]
+
+[node name="colisaoAreaLivroResposta" type="CollisionShape2D" parent="areaLivroResposta"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_pghba")
+
+[connection signal="area_entered" from="areaLivroResposta" to="." method="_on_area_livro_resposta_area_entered"]
+[connection signal="area_exited" from="areaLivroResposta" to="." method="_on_area_livro_resposta_area_exited"]
