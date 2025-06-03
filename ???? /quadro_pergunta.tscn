@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs837uc1wo6hv"]
+
+[ext_resource type="Script" uid="uid://bm5pgro3viqsx" path="res://scripts/quadro_pergunta.gd" id="1_e4d6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkinp"]
+size = Vector2(112.5, 57)
+
+[node name="quadroPergunta" type="Node2D"]
+script = ExtResource("1_e4d6j")
+
+[node name="areaQuadro" type="Area2D" parent="."]
+
+[node name="colisaoAreaQuadro" type="CollisionShape2D" parent="areaQuadro"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_wkinp")
+
+[connection signal="body_entered" from="areaQuadro" to="." method="_on_area_quadro_body_entered"]
+[connection signal="body_exited" from="areaQuadro" to="." method="_on_area_quadro_body_exited"]
