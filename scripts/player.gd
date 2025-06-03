@@ -1,5 +1,4 @@
 extends CharacterBody2D
-#Script Player
 var tem_antivirus: bool = false
 const SPEED: int = 130
 
@@ -22,5 +21,3 @@ func _physics_process(_delta: float) -> void:
 func _on_body_entered(body: Node):
 	if body.name == "areaInimigo1" and tem_antivirus:
 		body.get_parent().queue_free()
-		tem_antivirus = false
-		print("Inimigo derrotado com antivírus!")
