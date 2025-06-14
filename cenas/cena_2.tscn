@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://bpl4xfyp1dsbj" path="res://player.tscn" id="10_xm8pw"]
 [ext_resource type="PackedScene" uid="uid://bs837uc1wo6hv" path="res://cenas/quadro_pergunta.tscn" id="11_n0r7w"]
 [ext_resource type="PackedScene" uid="uid://cg16djmoag161" path="res://cenas/tela_livro.tscn" id="15_1cjdj"]
-[ext_resource type="PackedScene" uid="uid://qf8rkmtoutn1" path="res://cenas/livro_resposta.tscn" id="16_6qliw"]
 [ext_resource type="PackedScene" uid="uid://cddrvjl04apf" path="res://cenas/senha.tscn" id="18_6pnbp"]
 [ext_resource type="PackedScene" uid="uid://dmhahg6ibm2gj" path="res://cenas/professor_1.tscn" id="19_koi62"]
 [ext_resource type="PackedScene" uid="uid://ce0426352yxes" path="res://cenas/professor_2.tscn" id="20_vtqa5"]
@@ -31,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://tx2nfxo72j7s" path="res://cenas/camera.tscn" id="27_gob14"]
 [ext_resource type="Texture2D" uid="uid://b5fw6rbj5d6fl" path="res://sprites/tarefas.png" id="28_2gcvd"]
 [ext_resource type="PackedScene" uid="uid://baig038kmaics" path="res://cenas/area_pc.tscn" id="28_6ma6g"]
+[ext_resource type="PackedScene" uid="uid://dw7bqafkw8c36" path="res://cenas/livro_resposta4.tscn" id="32_0liyg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6qliw"]
 texture = ExtResource("7_6pnbp")
@@ -316,14 +316,11 @@ position = Vector2(352, -44)
 [node name="telaLivro" parent="." instance=ExtResource("15_1cjdj")]
 visible = false
 
-[node name="livroResposta" parent="." instance=ExtResource("16_6qliw")]
-position = Vector2(361, 224)
-
 [node name="senha" parent="." instance=ExtResource("18_6pnbp")]
 position = Vector2(325, 699)
 
 [node name="antivirus" parent="." instance=ExtResource("21_vtqa5")]
-position = Vector2(36, 8)
+position = Vector2(76, -8)
 
 [node name="professor3" parent="." instance=ExtResource("22_4exa3")]
 z_index = 3
@@ -400,5 +397,10 @@ texture = ExtResource("28_2gcvd")
 
 [node name="areaPc" parent="." instance=ExtResource("28_6ma6g")]
 position = Vector2(531, -44)
+
+[node name="HTTPRequest_cena2" type="HTTPRequest" parent="."]
+
+[node name="livroResposta1" parent="." instance=ExtResource("32_0liyg")]
+position = Vector2(363, 226)
 
 [editable path="camera"]
