@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://7ffx11iyxrh5"]
+
+[ext_resource type="Script" uid="uid://c53117nedvqi4" path="res://cenas/maca.gd" id="1_2hmu6"]
+[ext_resource type="Texture2D" uid="uid://ntim4ol65dnf" path="res://sprites/maca.png" id="2_2hmu6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hmu6"]
+size = Vector2(45, 50)
+
+[node name="maca" type="Node2D"]
+script = ExtResource("1_2hmu6")
+
+[node name="Maca" type="Sprite2D" parent="."]
+position = Vector2(-1, -3)
+scale = Vector2(1.53125, 1.5625)
+texture = ExtResource("2_2hmu6")
+
+[node name="Area2D_maca" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_maca"]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_2hmu6")
+
+[node name="HTTPRequest_maca" type="HTTPRequest" parent="."]
+
+[connection signal="body_entered" from="Area2D_maca" to="." method="_on_area_2d_maca_body_entered"]
+[connection signal="body_exited" from="Area2D_maca" to="." method="_on_area_2d_maca_body_exited"]

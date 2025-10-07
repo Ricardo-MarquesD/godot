@@ -14,5 +14,7 @@ script = ExtResource("1_h7e8h")
 position = Vector2(-0.5, 20)
 shape = SubResource("RectangleShape2D_nqd8t")
 
+[node name="HTTPRequest_areaPC" type="HTTPRequest" parent="."]
+
 [connection signal="body_entered" from="PcArea" to="." method="_on_pc_area_body_entered"]
 [connection signal="body_exited" from="PcArea" to="." method="_on_pc_area_body_exited"]

@@ -8,6 +8,12 @@ var jogador: Node2D = null
 var perseguindo: bool = false
 var indice_atual: int = 0
 var morreu: bool = false
+var ponto = 0
+var pontoRetornado = 0
+var idusuario
+var idsessao
+var apelido
+var tipocatado = 0
 
 func _ready():
 	$areaInimigo1.body_entered.connect(_quando_jogador_entrar)
@@ -57,6 +63,23 @@ func _on_body_entered(body: Node) -> void:
 		body.tem_antivirus = false
 		$malware.play("morte")
 		print("Malware derrotado")
+
+		#Pontua a ação com 1 ponto
+		tipocatado = 6
+		ponto = 1
+		idusuario = DADOS_JOGO.devolve_idusuario()
+		idsessao = DADOS_JOGO.devolve_idsessao()
+		apelido = DADOS_JOGO.devolve_apelido()
+		print("Dados retornados pelo singleton: ",apelido," ", idusuario," ", idsessao)
+		DADOS_JOGO.recebePontos(ponto)
+		pontoRetornado = DADOS_JOGO.devolvePontos()
+		print("Ponto retornado pelo singleton: ", pontoRetornado)
+		$"../Hud/pontuacao".text = str(pontoRetornado)
+		#Requisição http
+		var sequencia = str(idusuario)+";"+str(ponto)+";"+str(idsessao)+";"+str(tipocatado)+";"+str(apelido)
+		var query = "sequencia="+sequencia
+		$"HTTPRequest_inimigo1".request("http://127.0.0.1/serdigiPhp/serdigi_pontuacao.php?" + query)
+		print("Enviei a requisição")
 
 func _on_malware_animation_finished() -> void:
 	if $malware.animation == "morte":

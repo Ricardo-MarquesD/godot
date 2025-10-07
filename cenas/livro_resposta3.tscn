@@ -1,18 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdlp1nmaiehfj"]
 
-[ext_resource type="Script" uid="uid://bhi4oal2jln2b" path="res://scripts/livro_resposta.gd" id="1_3ntwy"]
+[ext_resource type="Script" uid="uid://78awo26aaf6a" path="res://scripts/livro_resposta_3.gd" id="1_3ntwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pghba"]
 size = Vector2(26.75, 28.25)
 
-[node name="livroResposta" type="Node2D"]
+[node name="livroResposta3" type="Node2D"]
 script = ExtResource("1_3ntwy")
 
-[node name="areaLivroResposta" type="Area2D" parent="."]
+[node name="areaLivroResposta3" type="Area2D" parent="."]
 
-[node name="colisaoAreaLivroResposta" type="CollisionShape2D" parent="areaLivroResposta"]
+[node name="colisaoAreaLivroResposta3" type="CollisionShape2D" parent="areaLivroResposta3"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_pghba")
 
-[connection signal="area_entered" from="areaLivroResposta" to="." method="_on_area_livro_resposta_area_entered"]
-[connection signal="area_exited" from="areaLivroResposta" to="." method="_on_area_livro_resposta_area_exited"]
+[node name="HTTPRequest_livroResposta3" type="HTTPRequest" parent="."]
+
+[connection signal="area_entered" from="areaLivroResposta3" to="." method="_on_area_livro_resposta_area_entered"]
+[connection signal="area_exited" from="areaLivroResposta3" to="." method="_on_area_livro_resposta_area_exited"]

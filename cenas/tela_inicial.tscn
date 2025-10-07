@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://weme5il4ewmw"]
+
+[ext_resource type="Texture2D" uid="uid://dlcjy2v0yen1k" path="res://sprites/telaInicial.png" id="1_24di4"]
+[ext_resource type="Texture2D" uid="uid://ctx4khniskuel" path="res://sprites/novoJogo.png" id="2_ox3ib"]
+
+[node name="TelaInicial" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -512.0
+offset_top = -600.5
+offset_right = 512.0
+offset_bottom = 423.5
+size_flags_vertical = 0
+texture = ExtResource("1_24di4")
+
+[node name="BotaoNovoJogo" type="Button" parent="."]
+offset_left = -285.0
+offset_top = -165.0
+offset_right = 280.0
+offset_bottom = -4.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+icon = ExtResource("2_ox3ib")
+
+[node name="BotaoLoad" type="Button" parent="."]
+offset_left = -512.0
+offset_top = 592.5
+offset_right = 512.0
+offset_bottom = 600.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
