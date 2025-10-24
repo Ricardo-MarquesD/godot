@@ -8,6 +8,10 @@ var apelido
 var tipocatado = 0
 var tem_antivirus: bool = false
 const SPEED: int = 130
+var flag_fase = 0
+var status_resposta = 0
+
+var conjunto  = 0
 
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -25,7 +29,9 @@ func _physics_process(_delta: float) -> void:
 		$animacaoPlayer.play("idle")
 		
 	var recebe_entrou_no_livro = DADOS_JOGO.devolve_entrou_no_livro()
-	if ((Input.is_action_just_pressed("escolher_livro")) and (recebe_entrou_no_livro == 1)):
+	
+	#momento em que o usuario escolhe o livro
+	if ((Input.is_action_just_pressed("escolher_livro")) and (recebe_entrou_no_livro == 1)): 
 		tipocatado = 5
 		ponto = 1
 		idusuario = DADOS_JOGO.devolve_idusuario()
@@ -41,6 +47,24 @@ func _physics_process(_delta: float) -> void:
 		var query = "sequencia="+sequencia
 		$HTTPRequest_player_livro.request("http://127.0.0.1/serdigiPhp/serdigi_pontuacao.php?" + query)
 		print("Enviei a requisição")
+		
+		#Conferindo o acerto da resposta
+		conjunto = DADOS_JOGO.devolve_conjunto()
+		flag_fase = DADOS_JOGO.devolve_flag_fase() #identifica a fase  e a  resposta
+		status_resposta = DADOS_JOGO.devolve_status_resposta()
+		
+		print(flag_fase, status_resposta)
+		if (flag_fase == "11") and (status_resposta == "1"):
+			print("Acertou")
+		elif  (flag_fase == "12") and (status_resposta == "1"):
+			print("Acertou")
+		elif (flag_fase == "13") and (status_resposta == "1"):
+			print("Acertou")
+		elif (flag_fase == "14") and (status_resposta == "1"):
+			print("Acertou")
+		else:
+			print("Errou")
+		pass
 		
 
 

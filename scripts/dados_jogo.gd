@@ -10,6 +10,8 @@ var Apelido
 var Listanum
 var dentrodolivro = 0
 var recebeuconjunto = 0
+var recebeflagfase = 0
+var statusresposta = 0
 
 
 
@@ -73,3 +75,16 @@ func recebe_conjunto(recebeu_conjunto):
 func devolve_conjunto():
 	return recebeuconjunto
 #Fim da função que recebe conjunto
+
+#Função para receber a flag fase
+func recebe_flag_fase(recebe_flag_fase, status_resposta):
+	recebeflagfase = recebe_flag_fase
+	statusresposta = status_resposta
+	
+func devolve_flag_fase():
+	return recebeflagfase
+	
+func devolve_status_resposta():
+	return statusresposta
+	
+#Fim da função que recebe flag fase

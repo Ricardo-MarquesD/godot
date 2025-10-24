@@ -9,6 +9,7 @@ var tipocatado
 var recebe_entrou_no_livro = 0
 var conjunto  = ""
 var lista
+var flag_fase = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,8 +23,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_area_livro_resposta_area_entered(_area: Area2D) -> void:
-	$"../telaLivro".show()
 	if _area.name == "areaPlayer":
+		$"../telaLivro".show()
 		DADOS_JOGO.recebePontos(ponto)
 		pontoRetornado = DADOS_JOGO.devolvePontos()
 		print("Ponto retornado pelo singleton no livroResposta: ", pontoRetornado)
@@ -31,6 +32,8 @@ func _on_area_livro_resposta_area_entered(_area: Area2D) -> void:
 		#Pontua a ação com 1 ponto
 		tipocatado = 4
 		ponto = 1
+		flag_fase = 14 #Fase 1 Livro 4
+		DADOS_JOGO.recebeflagfase = flag_fase
 		idusuario = DADOS_JOGO.devolve_idusuario()
 		idsessao = DADOS_JOGO.devolve_idsessao()
 		apelido = DADOS_JOGO.devolve_apelido()

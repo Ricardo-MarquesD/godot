@@ -386,7 +386,7 @@ autowrap_mode = 3
 
 [node name="AvisoInicial" parent="." instance=ExtResource("25_78r26")]
 z_index = 2
-position = Vector2(105, 144)
+position = Vector2(106, 144)
 
 [node name="avisos" type="CanvasLayer" parent="."]
 visible = false
